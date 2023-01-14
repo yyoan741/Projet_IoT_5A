@@ -1,4 +1,4 @@
-Lors de ce projet nous allons essayer de mettre en place un système d'ouverture de porte via un QRcode généré 
+Lors de ce projet nous allons essayer de mettre en place un système d'ouverture de porte via un QRcode généré
 
 ##  1 - Analyse du marché (Yoan)
 
@@ -31,18 +31,17 @@ Les principales caractéristiques des serrures des fabricants cités sont :
 Une nomenclature, Bill of Materials ou BOM, est **une liste complète des matières premières, des pièces et des outils nécessaires pour fabriquer un produit donné**.
 
 -   estimer le coût de la BOM de votre produit (composants, PCB et enclosure) pour 5000 unités produites
-    
+
 -   pour le boitier, vous pouvez rechercher des boitiers “standards” disponibles dans les catalogues fournisseurs
-    
+
 pour le PCB, vous pouvez fournir une estimation du prix de fabrication du PCB et du masque chez des fournisseurs comme [https://jlcpcb.com/](https://jlcpcb.com/) , [https://www.wedirekt.fr/fr/](https://www.wedirekt.fr/fr/) …
 
 | Produit | Quantité par produit  | Prix (€) pour 5000 unités (HT) | Prix (€) unitaire (HT) |
-|Raspberry Pi 3 B|1| 200000| 40 (estimé)
+|Raspberry Pi 3 B|1| 200000| 40 (estimé)|
 |PiCamera  |1| 109100 | 21,82|
 |Boite hermétique|1|10000|2|
 |Wio Terminal|1|200000|40|
 
-<![endif]-->
 
 Prix total pour 5000 unités HT : 555835 €
 
@@ -77,7 +76,7 @@ Une nette réduction des prix est possible en réalisant un PCB personnalisé en
 ## 12 - Temps d'exécutions (on verra)
 
 -   Instrumenter le logiciel embarqué pour mesurer les différents temps d’exécution des principales phases d’exécution (par exemple: durée d’une prise de photo, écriture sur carte SD, inférences avec un réseau de neurones …)
--   Prévoir de montrer la trace console de l’objet pendant la démonstration. 
+-   Prévoir de montrer la trace console de l’objet pendant la démonstration.
 
 ## 13 - Durée de vie (on verra)
 
@@ -86,7 +85,6 @@ Une nette réduction des prix est possible en réalisant un PCB personnalisé en
 ## 14 - Cycle de vie du produit (Yoan)
 
 **réaliser une analyse (brève) du cycle de vie du produit “durable” et “[sobre](https://www.youtube.com/watch?v=aX_tzI7w7Qo)” ([ACV](https://fr.wikipedia.org/wiki/Analyse_du_cycle_de_vie))**
-<![endif]-->
 
 La récupération des matières de notre produit est très polluante. Nous utilisons des terres rares pour la fabrication du boitier (pétrole pour le plastique) ainsi que les composants électroniques (silicium, or, cuivre, etc.).
 
@@ -101,7 +99,10 @@ La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Cert
 -  rechercher et analyser (avantages/inconvénients sous la forme d’une grille) des produits concurrent
 
 ||Concurence|Notre produit|
-|Prix (€ TTC en France)|175 
+|Prix (€ TTC en France)|175|75|
+|Connectivité|Wifi, Bluetooth, ZigBee, Autres|Wifi|
+|Invitations|Oui|Oui|
+|Historique des accès|Oui|Oui|
 
 Les fonctionnalités disponibles avec notre produit sont moindres que celles des produits actuellement sur le marché. Cependant, le prix que nous serions capables de proposer est largement inférieur. Ainsi, notre produit serait une opportunité d’entrée de gamme très crédible.
 
@@ -109,11 +110,15 @@ Les fonctionnalités disponibles avec notre produit sont moindres que celles des
 
 **montrer les intégrations effectuées (cayenne, influxdb, home assistant, jupyter notebook …)**
 
-## Documentation / Sources 
+## Documentation / Sources
 - https://www.serrure-connectee.fr/
 - https://www.frandroid.com/guide-dachat/guide-dachat-maison-connectee/840576_quelles-sont-les-meilleures-serrures-connectees-en-2021
 - https://www.infoprotection.fr/des-serrures-connectees-de-seconde-generation/
 - https://www.mordorintelligence.com/fr/industry-reports/smart-lock-market
+- https://fr.rs-online.com/web/c/raspberry-pi-arduino-outils-de-developpement/boutique-raspberry-pi/
+- https://www.gotronic.fr/art-wio-terminal-31802.htm
+- https://jlcpcb.com/
+
 
 
 Pour les différents schémas : **[Plantuml](https://github.com/donsez/bd/tree/main/plantuml#readme)**
