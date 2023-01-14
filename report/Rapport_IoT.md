@@ -98,17 +98,18 @@ La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Cert
 
 -  rechercher et analyser (avantages/inconvénients sous la forme d’une grille) des produits concurrent
 
-||Concurence|Notre produit|
+| | Concurence|Notre produit |
 |--|--|
-|Prix (€ TTC en France)|175|75|
-|Connectivité|Wifi, Bluetooth, ZigBee, Autres|Wifi|
-|Invitations|Oui|Oui|
-|Historique des accès|Oui|Oui|
+| Prix (€ TTC en France) | 175 | 75 |
+| Connectivité| Wifi, Bluetooth, ZigBee, Autres | Wifi |
+| Invitations | Oui | Oui |
+| Historique des accès| Oui | Oui |
 
 |  | Concurence | Notre produit |
 |------|-----|----|
 | Prix (€ TTC en France)     | 175    | 75   |
-| Connectivité     | Oui    | Oui   |
+| Connectivité     | Wifi, Bluetooth, ZigBee, Autres    | Wifi   |
+| Invitations     | Oui    | Oui   |
 | Historique des accès     | Oui    | Oui   |
 
 Les fonctionnalités disponibles avec notre produit sont moindres que celles des produits actuellement sur le marché. Cependant, le prix que nous serions capables de proposer est largement inférieur. Ainsi, notre produit serait une opportunité d’entrée de gamme très crédible.
