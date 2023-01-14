@@ -105,11 +105,11 @@ La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Cert
 |Invitations|Oui|Oui|
 |Historique des accès|Oui|Oui|
 
-| Prix | 150 | 50 |   |   |
-|------|-----|----|---|---|
-|      |     |    |   |   |
-|      |     |    |   |   |
-|      |     |    |   |   |
+|  | Concurence | Notre produit |
+|------|-----|----|
+| Prix (€ TTC en France)     | 175    | 75   |
+| Connectivité     | Oui    | Oui   |
+| Historique des accès     | Oui    | Oui   |
 
 Les fonctionnalités disponibles avec notre produit sont moindres que celles des produits actuellement sur le marché. Cependant, le prix que nous serions capables de proposer est largement inférieur. Ainsi, notre produit serait une opportunité d’entrée de gamme très crédible.
 
