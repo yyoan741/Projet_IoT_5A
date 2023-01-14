@@ -1,6 +1,9 @@
-Lors de ce projet nous allons essayer de mettre en place un système d'ouverture de porte via un QRcode généré
+## Introduction
 
-##  1 - Analyse du marché (Yoan)
+Lors de la 5ème année à Polytech Grenoble, il nous a été demandé de travailler sur une durée de 16h en présentiel au FabLab de Grenoble, sur des projets permettant de mettre en place des systèmes connectés.
+Lors de ce projet nous allons essayer de mettre en place un système d'ouverture de porte via un QRcode généré par un script python et de le décoder à l'aide d'une caméra permettant sa reconnaissance, le tout, sur une Raspberry PI.
+
+##  1 - Analyse du marché 
 
 **analyse (rapide) du marché des produits commerciaux concurrents**
 Le marché des serrures connectées est en croissance rapide. La demande pour les systèmes de sécurité de domicile augmente fortement. La fonctionnalité majeure est la possibilité de verrouiller et déverrouiller à distance à l'aide d'un smartphone. Les principaux acteurs sur ce marché sont August, Schlage et Yale. Le marché de ce secteur était estimé à 3,1 milliards de dollars en 2020 et pourrait atteindre 8 milliards en 2026. La croissance de ce marché devrait principalement se trouver en Asie et de manière plus modérée en Europe et en Amérique du Nord. Les prévisions de croissance à long terme pour ce marché sont positives. Les serrures connectées peuvent être connectées à des systèmes de domotique pour une intégration encore plus complète (Google Home, Amazon Alexa, etc).
@@ -14,7 +17,7 @@ Les principales caractéristiques des serrures des fabricants cités sont :
 - Un historique des accès
 - Le verrouillage automatique
 
-## 2 - Architecture globale du système (Yoan)
+## 2 - Architecture globale du système 
 
 **(ensemble d’objets, service en ligne (cloud))**
 ![Architecture envisagée](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/Archi_envisag%C3%A9e.png)
@@ -39,7 +42,7 @@ Nous avons donc pensé à une autre architecture qui devrait être fonctionnelle
 
 **(insérer schéma 2)**
 
-## 4- Implémentation logiciel embarqué (Arnaud)
+## 4- Implémentation logiciel embarqué 
 
 ### 4-1 - Implémentation PoC
 
@@ -137,16 +140,22 @@ Une nette réduction des prix est possible en réalisant un PCB personnalisé en
 
 - **compter le nombre de lignes de code développé (coté objet, coté application) avec un outil comme [cloc](https://github.com/AlDanial/cloc). Précisez les langages et les outils utilisés (git, arduino-cli …)**
 
-## 12 - Temps d'exécutions (on verra)
+## 12 - Temps d'exécutions
 
--   Instrumenter le logiciel embarqué pour mesurer les différents temps d’exécution des principales phases d’exécution (par exemple: durée d’une prise de photo, écriture sur carte SD, inférences avec un réseau de neurones …)
--   Prévoir de montrer la trace console de l’objet pendant la démonstration.
+Nous allons désormais calculer le temps d'exécution de notre processus à l'aide de la librairie time de python nous permettant de mesurer le temps :
+- script bash :
+	- programme genere_QR.py : **0,028s**
+	- programme capture.py : **12,18s** + **30s** pour que l'utilisateur ai le temps de monter le QR code.
+
+- mise à jour du QR code sur le serveur comprise dans le genere_QR.py car enregistrement du fichier dans base de donnée locale.
+
+- Durée totale du protocole : **42,1 secondes**
 
 ## 13 - Durée de vie (on verra)
 
 **estimer la durée de vie de la batterie de l’objet (pour LoRaWAN en fonction du datarate comme avec l’outil [https://www.elsys.se/en/battery-life-calculator/](https://www.elsys.se/en/battery-life-calculator/)**
 
-## 14 - Cycle de vie du produit (Yoan)
+## 14 - Cycle de vie du produit 
 
 **réaliser une analyse (brève) du cycle de vie du produit “durable” et “[sobre](https://www.youtube.com/watch?v=aX_tzI7w7Qo)” ([ACV](https://fr.wikipedia.org/wiki/Analyse_du_cycle_de_vie))**
 
@@ -158,7 +167,7 @@ A l’utilisation, notre serrure connectée consomme de l’électricité pour a
 
 La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Certains composants électroniques ne sont aujourd’hui pas recyclables (écrans, circuits intégrés). Certaines parties comme les métaux et les plastiques (PCB et boitier) peuvent se recycler, limitant l’impact sur l’environnement de cette étape de vie.
 
-## 15 - Comparaison contre la concurrence (Yoan)
+## 15 - Comparaison contre la concurrence 
 
 -  rechercher et analyser (avantages/inconvénients sous la forme d’une grille) des produits concurrent
 
@@ -171,7 +180,7 @@ La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Cert
 
 Les fonctionnalités disponibles avec notre produit sont moindres que celles des produits actuellement sur le marché. Cependant, le prix que nous serions capables de proposer est largement inférieur. Ainsi, notre produit serait une opportunité d’entrée de gamme très crédible.
 
-## 16 - Intégrations effectuées (Arnaud)
+## 16 - Intégrations effectuées 
 
 - stack editor (markdown editor)
 - github pour le répertoire du projet
@@ -190,7 +199,7 @@ Les fonctionnalités disponibles avec notre produit sont moindres que celles des
 	
  **ajout celles de Yoan**
 
-## Documentation / Sources
+## Documentation et Sources
 - https://www.serrure-connectee.fr/
 - https://www.frandroid.com/guide-dachat/guide-dachat-maison-connectee/840576_quelles-sont-les-meilleures-serrures-connectees-en-2021
 - https://www.infoprotection.fr/des-serrures-connectees-de-seconde-generation/
