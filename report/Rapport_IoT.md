@@ -131,18 +131,6 @@ Une nette réduction des prix est possible en réalisant un PCB personnalisé en
 
 - Au niveau des différentes certifications ETSI, nous n'avons utilisés que des composants déjà certifiés et fiables (comme les RaspberryPI) et n'en avons développé aucun nécessitant une expertise à ce niveau non plus.
 
-## 10- Définition logiciel embarqué (Arnaud)
-
-**définir le logiciel embarqué de l’objet.**
-## 8- Implémentation logiciel embarqué (Arnaud)
-
-**proposer une implémentation du logiciel embarqué de l’objet défini.**
-
-## 9 - Format des messages (Arnaud)
-
-**définir/documenter le format des messages uplink et downlink échangés (dans le cas des objets LoRaWAN, privilégiez le format LPP)**
-
-
 ## 11- Métrique du logiciel (on verra plus tard ensemble)
 
 - **donner les métriques logiciel du logiciel embarqué (nombre de lignes de code, taille du binaire du firmware ie le fichier .bin)**
