@@ -27,10 +27,10 @@ Les principales caractéristiques des serrures des fabricants cités sont :
 ## 3 - Définition logiciel embarqué
 Pour ce qui est de la partie embarqué de notre système, celui repose principalement sur l'utilisation de Home Assistant OS.
 
-### 3-1 - Mise en place PoC
+### 3-1 - Mise en place Proof of Concept
 
 Dans un premier temps, nous avons décidé de simuler le cas où un serveur Home Assistant était déjà implanté chez l'utilisateur pour y ajouter notre solution et le connecter à celui-ci.
-Notre Proof of Concept est donc actuellement composé de 2 Raspberry PI, l'une hébergeant le serveur Home Assistant à l'aide de son OS dédié et l'autre hébergeant nos scripts python à exécuter dans un fichier Bash, ainsi que la partie Hardware et les logiciels complémentaires à ceux-ci et leurs bibliothèques associées afin d'assurer leur bon fonctionnement :
+Notre Proof of Concept est donc actuellement composé de 2 Raspberry PI, l'une hébergeant le serveur Home Assistant à l'aide de son OS dédié et l'autre hébergeant nos scripts python à exécuter dans un fichier Bash, ainsi que la partie Hardware, les logiciels complémentaires à ceux-ci et leurs bibliothèques associées afin d'assurer leur bon fonctionnement :
 
 **(insérer schéma)**
 
@@ -45,7 +45,7 @@ Nous avons donc pensé à une autre architecture qui devrait être fonctionnelle
 
 ## 4- Implémentation logiciel embarqué 
 
-### 4-1 - Implémentation PoC
+### 4-1 - Implémentation Proof of Concept
 
 Après avoir vu son architecture, nous allons désormais étudier le fonctionnement de l'implémentation de notre première Proof of Concept. 
 Notre objectif était d'effectuer le protocole suivant :
