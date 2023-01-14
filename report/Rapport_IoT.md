@@ -18,6 +18,27 @@ Les principales caractéristiques des serrures des fabricants cités sont :
 
 **(ensemble d’objets, service en ligne (cloud))**
 ![Architecture envisagée](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/Archi_envisag%C3%A9e.png)
+
+
+## 10- Définition logiciel embarqué (Arnaud)
+Pour ce qui est de la partie embarqué de notre système, celui repose principalement sur l'utilisation de Home Assistant OS.
+
+### 10-1 - Mise en place PoC
+
+Dans un premier temps, nous avons décidé de simuler le cas où un serveur Home Assistant était déjà implanté chez l'utilisateur pour y ajouter notre solution et le connecter à celui-ci.
+Notre Proof of Concept est donc actuellement composé de 2 Raspberry PI, l'une hébergeant le serveur Home Assistant à l'aide de son OS dédié et l'autre hébergeant nos scripts python à exécuter dans un fichier Bash, ainsi que la partie Hardware et les logiciels complémentaires à ceux-ci et leurs bibliothèques associées afin d'assurer leur bon fonctionnement :
+
+**(insérer schéma)**
+
+Nous avons cependant pu rencontrer des problèmes lors de la réalisation de celle-ci. En effet, nous avions décidé de créer un API au serveur en générant son token afin de communiquer avec le serveur home assistant. Mais le codage de QRcode étant impossible à cause de soucis de compatibilité sur Home Assistant, nous avons du abandonner cette solution et repenser à une nouvelle architecture fonctionnelle.
+
+### 10-2 - Mise en place Idéale
+
+Nous avons donc pensé à une autre architecture qui devrait être fonctionnelle mais nous n'avons malheureusement pas eu le temps de la mettre en place à cause de changement de matériel au dernier moment et de la durée de nos essais sur l'architecture précédente.
+ Cette architecture étant composé cette fois-ci d'une seule Raspberry sous un OS Debian, contenant un docker hébergeant  Home Assistant. Contrairement à une Raspberry utilisant l'OS d'home assistant, il nous est désormais possible d'y exécuter des commandes bash et d'y intégrer nos différents scripts.
+
+**(insérer schéma 2)**
+
 ## 3 - Sécurité globale (Arnaud)
 
 **(clé de chiffrage),**
