@@ -94,15 +94,7 @@ Afin d'éviter aux utilisateurs ou a des personnes malveillantes d'accéder aux 
 Nous pourrions voir d'autres méthodes pour renforcer la sécurité lors de l'échange comme la mise en place de clés privées et public ou encore de QR code temporaires.
 Des méthodes pouvant sembler évidentes mais très efficaces et à ne pas oublier comme l'utilisation d'identifiants et de mots de passe fiables et sécurisés pour le serveur, la mise à jour régulière des logiciels afin de lutter contre les diverses vulnérabilités de logiciels tierces ou encore d'utiliser des méthodes de sécurité pour le WIFI comme le WPA2, WPA3, l'installation d'un pare-feu ou d'une connexion SSL.
 
-## 7 - Vie privée du service (RGPD)
-
-Après avoir observé la protection de notre logiciel, il est aussi import de vérifier la protection des données utilisateurs et donc respecter les lois du RGPD (Règlement Général sur la Protection des Données).
-Dans les cadre de notre système, certaines données peuvent être enregistrées par l'utilisateur comme son image enregistrée par la caméra en attendant la reconnaissance du QR code, les logs indiquant quel utilisateur est rentré dans l'habitat et à quelle heure, ou encore les identifiants et mots de passe de l'utilisateur pour son compte potentiel.
-Dans ce cas, il est important d'assurer :
-La transparence à propos de l'utilisation des données enregistrées  et la bonne gestion de celles-ci.
-Il est important aussi de préciser que es données de la caméra ne seront pas enregistrées mais seulement traitées par notre programme de reconnaissance de QR code et que les logs ainsi que les identifiants et mots de passe seront correctement protégés et non utilisés ou vendus à un tierce.
-
-## 6 - Bill of Materials (Yoan)
+## 7 - Bill of Materials (Yoan)
 
 Une nomenclature, Bill of Materials ou BOM, est **une liste complète des matières premières, des pièces et des outils nécessaires pour fabriquer un produit donné**.
 
@@ -128,19 +120,27 @@ Ces prix ne sont pourtant pas réalistes car dans le cas de la création d’un 
 
 Une nette réduction des prix est possible en réalisant un PCB personnalisé en utilisant uniquement les composants nécessaires. Un PCB sur mesure couterait autour de 500 € pour 5000 unités, composants exclus. Cela reviendrait à 10 centimes par unités. De même, un écran et une caméra seuls permettraient aussi de baisser largement les coûts. Ainsi, on peut espérer baisser le coût de fabrication d’une unité à une cinquantaine d’euros.
 
+## 8 - Vie privée du service (RGPD)
+
+Après avoir observé la protection de notre logiciel, il est aussi import de vérifier la protection des données utilisateurs et donc respecter les lois du RGPD (Règlement Général sur la Protection des Données).
+Dans les cadre de notre système, certaines données peuvent être enregistrées par l'utilisateur comme son image enregistrée par la caméra en attendant la reconnaissance du QR code, les logs indiquant quel utilisateur est rentré dans l'habitat et à quelle heure, ou encore les identifiants et mots de passe de l'utilisateur pour son compte potentiel.
+Dans ce cas, il est important d'assurer :
+La transparence à propos de l'utilisation des données enregistrées  et la bonne gestion de celles-ci.
+Il est important aussi de préciser que es données de la caméra ne seront pas enregistrées mais seulement traitées par notre programme de reconnaissance de QR code et que les logs ainsi que les identifiants et mots de passe seront correctement protégés et non utilisés ou vendus à un tierce.
+
 ## 9 - Coûts de certifications 
 
 - Notre produit utilisant uniquement des connexions WIFI privées, des certifications ne seront pas nécessaires à ce niveau.
 
 - Au niveau des différentes certifications ETSI, nous n'avons utilisés que des composants déjà certifiés et fiables (comme les RaspberryPI) et n'en avons développé aucun nécessitant une expertise à ce niveau non plus.
 
-## 11- Métrique du logiciel (on verra plus tard ensemble)
+## 10- Métrique du logiciel (on verra plus tard ensemble)
 
 - **donner les métriques logiciel du logiciel embarqué (nombre de lignes de code, taille du binaire du firmware ie le fichier .bin)**
 
 - **compter le nombre de lignes de code développé (coté objet, coté application) avec un outil comme [cloc](https://github.com/AlDanial/cloc). Précisez les langages et les outils utilisés (git, arduino-cli …)**
 
-## 12 - Temps d'exécutions
+## 11 - Temps d'exécutions
 
 Nous allons désormais calculer le temps d'exécution de notre processus à l'aide de la librairie time de python nous permettant de mesurer le temps :
 - script bash :
@@ -151,11 +151,11 @@ Nous allons désormais calculer le temps d'exécution de notre processus à l'ai
 
 - Durée totale du protocole : **42,1 secondes**
 
-## 13 - Durée de vie (on verra)
+## 12 - Durée de vie (on verra)
 
 **estimer la durée de vie de la batterie de l’objet (pour LoRaWAN en fonction du datarate comme avec l’outil [https://www.elsys.se/en/battery-life-calculator/](https://www.elsys.se/en/battery-life-calculator/)**
 
-## 14 - Cycle de vie du produit 
+## 13 - Cycle de vie du produit 
 
 **réaliser une analyse (brève) du cycle de vie du produit “durable” et “[sobre](https://www.youtube.com/watch?v=aX_tzI7w7Qo)” ([ACV](https://fr.wikipedia.org/wiki/Analyse_du_cycle_de_vie))**
 
@@ -167,7 +167,7 @@ A l’utilisation, notre serrure connectée consomme de l’électricité pour a
 
 La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Certains composants électroniques ne sont aujourd’hui pas recyclables (écrans, circuits intégrés). Certaines parties comme les métaux et les plastiques (PCB et boitier) peuvent se recycler, limitant l’impact sur l’environnement de cette étape de vie.
 
-## 15 - Comparaison contre la concurrence 
+## 14 - Comparaison contre la concurrence 
 
 -  rechercher et analyser (avantages/inconvénients sous la forme d’une grille) des produits concurrent
 
@@ -180,7 +180,7 @@ La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Cert
 
 Les fonctionnalités disponibles avec notre produit sont moindres que celles des produits actuellement sur le marché. Cependant, le prix que nous serions capables de proposer est largement inférieur. Ainsi, notre produit serait une opportunité d’entrée de gamme très crédible.
 
-## 16 - Intégrations effectuées 
+## 15 - Intégrations effectuées 
 
 - stack editor (markdown editor)
 - github pour le répertoire du projet
