@@ -37,6 +37,7 @@ Une nomenclature, Bill of Materials ou BOM, est **une liste complète des matiè
 pour le PCB, vous pouvez fournir une estimation du prix de fabrication du PCB et du masque chez des fournisseurs comme [https://jlcpcb.com/](https://jlcpcb.com/) , [https://www.wedirekt.fr/fr/](https://www.wedirekt.fr/fr/) …
 
 | Produit | Quantité par produit  | Prix (€) pour 5000 unités (HT) | Prix (€) unitaire (HT) |
+|--|--|--|--|
 | Raspberry Pi 3 B | 1 | 200000 | 40 (estimé) |
 | PiCamera  | 1 | 109100 | 21,82 |
 | Boite hermétique | 1 | 10000 | 2 |
