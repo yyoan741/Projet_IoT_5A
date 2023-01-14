@@ -99,6 +99,7 @@ La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Cert
 -  rechercher et analyser (avantages/inconvénients sous la forme d’une grille) des produits concurrent
 
 ||Concurence|Notre produit|
+|--|--|
 |Prix (€ TTC en France)|175|75|
 |Connectivité|Wifi, Bluetooth, ZigBee, Autres|Wifi|
 |Invitations|Oui|Oui|
