@@ -11,11 +11,11 @@ camera = PiCamera()
 camera.resolution=(1920, 1080)
 
 sleep(2)
-camera.capture('/home/admin/Documents/IoT/capt.png')
+camera.capture('/home/admin/Documents/IoT/capt.png') # Dans nos PoC, on stocke le fichier sur Linux
 print("Prise de la capture ...\n")
 
 
-img = cv2.imread("QR_CODE_PORTE_LOGS.jpg")
+img = cv2.imread("capt.jpg")
 detector = cv2.QRCodeDetector()
 
 print("Lancement du décodage ...\n")
