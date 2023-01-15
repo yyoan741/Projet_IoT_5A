@@ -19,8 +19,13 @@ Les principales caractéristiques des serrures des fabricants cités sont :
 
 ## 2 - Architecture globale du système
 
-![Architecture envisagée](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/Archi_envisag%C3%A9e.png)
+![Architecture envisagée](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/Archi_envisagée.png)
 
+Le scénario d'utilisation est le suivant :
+1. Appui du bouton poussoir sur le Wio Terminal. Cela déclenche la génération et l'envoi du QR code au serveur Home Assistant.
+2. L'utilisateur se connecte au serveur Home Assistant sur son smartphone pour récupérer le QR code.
+3. La caméra détecte le QR code affiché sur le smartphone. Il est décodé, décrypté.
+4. Si le QR code est valide, la Raspberry Pi déclanche l'ouverture.
 
 ## 3 - Définition logiciel embarqué
 Pour ce qui est de la partie embarqué de notre système, celui repose principalement sur l'utilisation de Home Assistant OS.
@@ -67,7 +72,7 @@ Nous avons donc chercher un autre solution afin de générer le QR code directem
 Pour implémenter nos programmes sur une seule carte contenant aussi le serveur nous avons donc penser à une nouvelle architecture que nous n'avons malheureusement pas eu le temps de mettre place.
 Celle-ci consistait à flasher la carte Raspberry avec un OS fonctionnant sous Debian cette fois-ci, et y héberger le serveur home assistant sur un docker.
 
-Le fonctionnement du protocole de cette architecture serait donc semblable au premier mais avec quelques différences tout de mêmes. Le bouton activera toujours le script bash lançant toujours les deux scripts python avec les mêmes timings mais avec un envoie du QR code totalement différent. En effet celui-ci sera cette fois-ci enregistré directement dans le fichier config/www/ contenu dans le docker du home assistant ,contenant les différents médias.
+Le fonctionnement du protocole de cette architecture serait donc semblable au premier mais avec quelques différences tout de mêmes. Le bouton activera toujours le script bash lançant toujours les deux scripts python avec les mêmes timings mais avec un envoi du QR code totalement différent. En effet celui-ci sera cette fois-ci enregistré directement dans le fichier config/www/ contenu dans le docker du home assistant ,contenant les différents médias.
 
 L'affichage se fera donc directement sur home assistant en cherchant le fichier dans ses fichiers locaux. Le reste du protocole d'effectuera de la même manière que l'architecture précédente.
 
@@ -81,9 +86,9 @@ Nous avons eu le temps de tester cette démarche sur l'OS d'Home Assistant impla
 
 Nous avons dans un premier temps utilisé des formats Json composés de headers contenant l'url de la requête, l'api_token pour être autorisé a communiquer avec l'API du serveur, ainsi que le payload a envoyer contenant la data.
 
-Etant passé sur un script Python, l'envoie du QR code s'effectue en enregistrant directement l'image jpg de celui-ci dans le fichier media de Home Assistant (fichier config/www/) qui sera donc récupérer directement dans ce répertoire.
+Etant passé sur un script Python, l'envoi du QR code s'effectue en enregistrant directement l'image jpg de celui-ci dans le fichier media de Home Assistant (fichier config/www/) qui sera donc récupérer directement dans ce répertoire.
 
-En ce qui concerne la caméra, la communication s'effectue en filaire et envoie des trames spécifiques en liaison série.
+En ce qui concerne la caméra, la communication s'effectue en filaire et envoi des trames spécifiques en liaison série.
 
 ## 6 - Sécurité globale
 
