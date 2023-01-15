@@ -111,6 +111,7 @@ Des méthodes pouvant sembler évidentes mais très efficaces et à ne pas oubli
 
 ## 7 - Bill of Materials
 <div align="center">
+
 | Produit | Quantité par produit  | Prix (€) pour 5000 unités (HT) | Prix (€) unitaire (HT) |
 |--|--|--|--|
 | Raspberry Pi 3 B | 1 | 200000 | 40 (estimé) |
@@ -118,6 +119,7 @@ Des méthodes pouvant sembler évidentes mais très efficaces et à ne pas oubli
 | PiCamera  | 1 | 82900 | 16,58 |
 | Boite hermétique | 1 | 10000 | 2 |
 | Wio Terminal | 1 | 200000 | 40 |
+
 </div>
 
 Prix total pour 5000 unités HT : 602000 €
@@ -185,6 +187,7 @@ La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Cert
 
 ## 14 - Comparaison contre la concurrence
 <div align="center">
+
 |  | Concurence|Notre produit |
 |--|--|--|
 | Prix (€ TTC en France) | 175 | 75 |
@@ -192,6 +195,7 @@ La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Cert
 | Verrouillage à distance | Oui | Non |
 | Invitations | Oui | Oui |
 | Historique des accès | Oui | Oui |
+
 </div>
 
 Les fonctionnalités disponibles avec notre produit sont moindres que celles des produits actuellement sur le marché. Cependant, le prix que nous serions capables de proposer est largement inférieur. Ainsi, notre produit serait une opportunité d’**entrée de gamme** très crédible.
