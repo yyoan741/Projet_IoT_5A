@@ -117,7 +117,9 @@ Un autre danger serait l'obtention des logs contenant des informations sur l'uti
 ### 6-2 - Solutions possibles
 
 Après avoir observer les différentes failles, nous allons désormais observer comment se protéger contre celles-ci.
-Afin de protéger notre QR_code contre de potentielles reproductions, celui-ci est codé par une chaine de 1000 caractères générée aléatoirement puis cryptée par une fonction de hachage avant d'être encodée (solution mise en place lors de notre test). Nous pourrions mettre en place à long terme d'autres algorithmes de cryptages plus puissants comme l'ED25519.
+Afin de protéger notre QR_code contre de potentielles reproductions, celui-ci est codé par une chaine de 1000 caractères générée aléatoirement puis cryptée par une fonction de hachage avant d'être encodée (solution mise en place lors de notre test). Nous pourrions mettre en place à long terme d'autres algorithmes de cryptages plus puissants comme l'ED25519. 
+
+Nous pourrions aussi ajouter les logs directement dans la clé afin d'obtenir differentes informations sur l utilisateur comme la date, l'heure, son appartement, et son etage afin de pouvoir obtenir un historique pour plus de securite et une meilleure gestion de plusieurs clés simultanées. Nous avons essayé de simuler cette fonctionnalité dans notre code pour notre démonstration d'utilisation.
 
 Afin d'éviter aux utilisateurs ou a des personnes malveillantes d'accéder aux appareils connectés de l'utilisateur principale, un compte invité peut être mis en place ne donnant accès qu'au QR code avec des identifiants et un mot de passe changeant régulièrement.
 Nous pourrions voir d'autres méthodes pour renforcer la sécurité lors de l'échange comme la mise en place de clés privées et public ou encore de QR code temporaires.
@@ -167,9 +169,9 @@ Notre code est majoritairement fait de python. Nous utilisons principalement des
 
 Nombre de lignes de code :
 - Capture_decode.py : **23**
-- genere_QR.py : **18**
+- genere_QR.py : **20**
 - Script Bash : **3**
-- Total : **44 lignes de codes**
+- Total : **46 lignes de codes**
 
 ## 11 - Temps d'exécutions
 
