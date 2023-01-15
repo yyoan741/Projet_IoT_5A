@@ -1,11 +1,10 @@
 <div align="left">
 Arnaud Huguenot-Noël
 Yoan Moreau
-</div>
-<div align="right">
 IESE5
 17/01/2023
 </div>
+
 ## Introduction
 
 Lors de notre 5ème année à Polytech Grenoble, il nous a été demandé de travailler sur une durée de 16h en présentiel au FabLab de Grenoble, sur des projets permettant de mettre en place des systèmes connectés.
