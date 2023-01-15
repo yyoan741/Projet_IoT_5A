@@ -1,3 +1,11 @@
+<div align="left">
+Arnaud Huguenot-Noël
+Yoan Moreau
+</div>
+<div align="right">
+IESE5
+17/01/2023
+</div>
 ## Introduction
 
 Lors de notre 5ème année à Polytech Grenoble, il nous a été demandé de travailler sur une durée de 16h en présentiel au FabLab de Grenoble, sur des projets permettant de mettre en place des systèmes connectés.
@@ -19,13 +27,13 @@ Les principales caractéristiques des serrures des fabricants cités sont :
 
 ## 2 - Architecture globale du système
 
-![Architecture envisagée](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/Archi_envisagée.png)
+![Architecture idéale](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/Archi_idéale.png)
 
-Le scénario d'utilisation est le suivant :
+Le scénario d'utilisation idéal est le suivant :
 1. Appui du bouton poussoir sur le Wio Terminal. Cela déclenche la génération et l'envoi du QR code au serveur Home Assistant.
 2. L'utilisateur se connecte au serveur Home Assistant sur son smartphone pour récupérer le QR code.
-3. La caméra détecte le QR code affiché sur le smartphone. Il est décodé, décrypté.
-4. Si le QR code est valide, la Raspberry Pi déclanche l'ouverture.
+3. La caméra détecte le QR code affiché sur le smartphone. Il est décodé, décrypté. L'utilisateur peut suivre l'avancement du protocole sur l'écran du Wio Terminal.
+4. Si le QR code est valide, la Raspberry Pi déclenche l'ouverture.
 
 ## 3 - Définition logiciel embarqué
 Pour ce qui est de la partie embarqué de notre système, celui repose principalement sur l'utilisation de Home Assistant OS.
