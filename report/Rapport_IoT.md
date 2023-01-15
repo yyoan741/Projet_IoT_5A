@@ -1,10 +1,7 @@
 <div align="left">
 Arnaud Huguenot-Noël
-
 Yoan Moreau
-
 IESE5
-
 17/01/2023
 </div>
 
