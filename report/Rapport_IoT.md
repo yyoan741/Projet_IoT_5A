@@ -32,7 +32,7 @@ Pour ce qui est de la partie embarqué de notre système, celui repose principal
 Dans un premier temps, nous avons décidé de simuler le cas où un serveur Home Assistant était déjà implanté chez l'utilisateur pour y ajouter notre solution et le connecter à celui-ci.
 Notre Proof of Concept est donc actuellement composé de 2 Raspberry PI, l'une hébergeant le serveur Home Assistant à l'aide de son OS dédié et l'autre hébergeant nos scripts python à exécuter dans un fichier Bash, ainsi que la partie Hardware, les logiciels complémentaires à ceux-ci et leurs bibliothèques associées afin d'assurer leur bon fonctionnement :
 
-**(insérer schéma)**
+![Architecture Proof of Concept](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/schema_archi_embarque_1.png)
 
 Nous avons cependant pu rencontrer des problèmes lors de la réalisation de celle-ci. En effet, nous avions décidé de créer un API au serveur en générant son token afin de communiquer avec le serveur home assistant. Mais le codage de QRcode étant impossible à cause de soucis de compatibilité sur Home Assistant, nous avons du abandonner cette solution et repenser à une nouvelle architecture fonctionnelle.
 
@@ -41,7 +41,7 @@ Nous avons cependant pu rencontrer des problèmes lors de la réalisation de cel
 Nous avons donc pensé à une autre architecture qui devrait être fonctionnelle mais nous n'avons malheureusement pas eu le temps de la mettre en place à cause de changement de matériel au dernier moment et de la durée de nos essais sur l'architecture précédente.
  Cette architecture étant composé cette fois-ci d'une seule Raspberry sous un OS Debian, contenant un docker hébergeant  Home Assistant. Contrairement à une Raspberry utilisant l'OS d'home assistant, il nous est désormais possible d'y exécuter des commandes bash et d'y intégrer nos différents scripts.
 
-**(insérer schéma 2)**
+![Architecture Solution Idéale](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/schema_archi_embarque_2.png)
 
 ## 4- Implémentation logiciel embarqué 
 
@@ -53,7 +53,7 @@ A partir de l'appui sur le bouton branché sur les ports adaptés de la Raspberr
 Le premier script ayant été lancé le second va ensuite être lancé à son tour. Celui-ci va demander à la caméra d'analyser l'image pendant une trentaine de secondes afin de laisser l'utilisateur sortir le QRcode et le montrer. 
 Celle-ci va ensuite comparer le QRcode repéré et le QR code disponible sur le serveur qui aura été généré via une automatisation sur Home Assistant et ouvrir le portail en fonction du résultat de cette comparaison.
 
-**(image protocole 1)**
+![Implementation Proof of Concept](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/schema_fonction%20embarque_1.png)
 
 Nous avons cependant rencontré un problème de compatibilité entre notre serveur Home Assistant et la fonction permettant de générer des QRcodes sur celui-ci, rendant la réalisation de ce protocole impossible. 
 Nous avons donc chercher un autre solution afin de générer le QR code directement dans le script Python et de directement l'envoyer à Home Assistant.
@@ -65,11 +65,11 @@ Celle-ci consistait à flasher la carte Raspberry avec un OS fonctionnant sous D
 Le fonctionnement du protocole de cette architecture serait donc semblable au premier mais avec quelques différences tout de mêmes. Le bouton activera toujours le script bash lançant toujours les deux scripts python avec les mêmes timings mais avec un envoie du QR code totalement différent. En effet celui-ci sera cette fois-ci enregistré directement dans le fichier config/www/ contenu dans le docker du home assistant ,contenant les différents médias.
 L'affichage se fera donc directement sur home assistant en cherchant le fichier dans ses fichiers locaux. Le reste du protocole d'effectuera de la même manière que l'architecture précédente.
 
-**(image protocole 2)**
+![Implementation Idéale](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/schema_fonction%20embarque_2.png)
 
 Nous avons eu le temps de tester cette démarche sur l'OS d'Home Assistant implanté sur une des RaspberryPI de notre première Proof of Concept, à la différence que le code pour l'enregistrement du QR code en format jpg s'effectue en local et est transféré à la main dans le fichier config/www/ d'home assistant contenant les médias. Mais celui-ci s'affiche bien dans le Dashboard principal du serveur et donc sur le téléphone avec l'application reliée comme ci-dessous :
 
-**(image QR_code téléphone)**
+![Screenshot_Telephone](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/screenshot_telephone.jpg)
 
 ## 5 - Format des messages
 
