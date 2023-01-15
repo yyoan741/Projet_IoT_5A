@@ -30,6 +30,7 @@ Pour ce qui est de la partie embarqué de notre système, celui repose principal
 ### 3-1 - Mise en place Proof of Concept
 
 Dans un premier temps, nous avons décidé de simuler le cas où un serveur Home Assistant était déjà implanté chez l'utilisateur pour y ajouter notre solution et le connecter à celui-ci.
+
 Notre Proof of Concept est donc actuellement composé de 2 Raspberry PI, l'une hébergeant le serveur Home Assistant à l'aide de son OS dédié et l'autre hébergeant nos scripts python à exécuter dans un fichier Bash, ainsi que la partie Hardware, les logiciels complémentaires à ceux-ci et leurs bibliothèques associées afin d'assurer leur bon fonctionnement :
 
 ![Architecture Proof of Concept](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/schema_archi_embarque_1.png)
@@ -39,7 +40,8 @@ Nous avons cependant pu rencontrer des problèmes lors de la réalisation de cel
 ### 3-2 - Mise en place Idéale
 
 Nous avons donc pensé à une autre architecture qui devrait être fonctionnelle mais nous n'avons malheureusement pas eu le temps de la mettre en place à cause de changement de matériel au dernier moment et de la durée de nos essais sur l'architecture précédente.
- Cette architecture étant composé cette fois-ci d'une seule Raspberry sous un OS Debian, contenant un docker hébergeant  Home Assistant. Contrairement à une Raspberry utilisant l'OS d'home assistant, il nous est désormais possible d'y exécuter des commandes bash et d'y intégrer nos différents scripts.
+
+Cette architecture étant composé cette fois-ci d'une seule Raspberry sous un OS Debian, contenant un docker hébergeant  Home Assistant. Contrairement à une Raspberry utilisant l'OS d'home assistant, il nous est désormais possible d'y exécuter des commandes bash et d'y intégrer nos différents scripts.
 
 ![Architecture Solution Idéale](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/schema_archi_embarque_2.png)
 
@@ -49,20 +51,26 @@ Nous avons donc pensé à une autre architecture qui devrait être fonctionnelle
 
 Après avoir vu son architecture, nous allons désormais étudier le fonctionnement de l'implémentation de notre première Proof of Concept. 
 Notre objectif était d'effectuer le protocole suivant :
+
 A partir de l'appui sur le bouton branché sur les ports adaptés de la Raspberry, lancer notre script bash comprenant l'exécution de nos deux scripts python. Le premier génère une chaine de caractère aléatoire de 1000 caractères, la crypte à l'aide d'une fonction de hachage et est envoyée au serveur Home Assistant via une requête Python. Cette requête est envoyée à l'API du serveur qui a été généré au préalable. 
+
 Le premier script ayant été lancé le second va ensuite être lancé à son tour. Celui-ci va demander à la caméra d'analyser l'image pendant une trentaine de secondes afin de laisser l'utilisateur sortir le QRcode et le montrer. 
+
 Celle-ci va ensuite comparer le QRcode repéré et le QR code disponible sur le serveur qui aura été généré via une automatisation sur Home Assistant et ouvrir le portail en fonction du résultat de cette comparaison.
 
 ![Implementation Proof of Concept](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/schema_fonction%20embarque_1.png)
 
 Nous avons cependant rencontré un problème de compatibilité entre notre serveur Home Assistant et la fonction permettant de générer des QRcodes sur celui-ci, rendant la réalisation de ce protocole impossible. 
+
 Nous avons donc chercher un autre solution afin de générer le QR code directement dans le script Python et de directement l'envoyer à Home Assistant.
 
 ### 4-2 - Implémentation Idéale 
 
 Pour implémenter nos programmes sur une seule carte contenant aussi le serveur nous avons donc penser à une nouvelle architecture que nous n'avons malheureusement pas eu le temps de mettre place.
 Celle-ci consistait à flasher la carte Raspberry avec un OS fonctionnant sous Debian cette fois-ci, et y héberger le serveur home assistant sur un docker.
+
 Le fonctionnement du protocole de cette architecture serait donc semblable au premier mais avec quelques différences tout de mêmes. Le bouton activera toujours le script bash lançant toujours les deux scripts python avec les mêmes timings mais avec un envoie du QR code totalement différent. En effet celui-ci sera cette fois-ci enregistré directement dans le fichier config/www/ contenu dans le docker du home assistant ,contenant les différents médias.
+
 L'affichage se fera donc directement sur home assistant en cherchant le fichier dans ses fichiers locaux. Le reste du protocole d'effectuera de la même manière que l'architecture précédente.
 
 ![Implementation Idéale](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/schema_fonction%20embarque_2.png)
@@ -74,7 +82,9 @@ Nous avons eu le temps de tester cette démarche sur l'OS d'Home Assistant impla
 ## 5 - Format des messages
 
 Nous avons dans un premier temps utilisé des formats Json composés de headers contenant l'url de la requête, l'api_token pour être autorisé a communiquer avec l'API du serveur, ainsi que le payload a envoyer contenant la data.
+
 Etant passé sur un script Python, l'envoie du QR code s'effectue en enregistrant directement l'image jpg de celui-ci dans le fichier media de Home Assistant (fichier config/www/) qui sera donc récupérer directement dans ce répertoire.
+
 En ce qui concerne la caméra, la communication s'effectue en filaire et envoie des trames spécifiques en liaison série.
 
 ## 6 - Sécurité globale
@@ -82,17 +92,23 @@ En ce qui concerne la caméra, la communication s'effectue en filaire et envoie 
 ### 6-1 - Menaces identifiées
 
 Ces architectures et ces connexions sont très utiles mais représentent aussi des failles dans la sécurité de notre système. Nous allons dans un premier temps y identifier les menaces potentielles.
+
 L'un des principaux problèmes se trouve dans l'utilisations de nos services tiers. En effet toute leur failles respectives se répercuterons directement sur notre système devenant instable à son tour.
+
 Un menace se trouve aussi lors de la connexion au serveur de home assistant, si une personne malveillante arrive à se connecter à notre serveur en contournant les protections afin de l'utiliser pour un usage malveillant. Ce même danger peut se répercuter sur le réseau Wifi qui pourrait être accessible au malfaiteur.
+
 De nombreux danger se trouvent aussi dans les échanges de QR codes. En effet, celui-ci pourrait être reproduit ou rediriger vers une autre entité afin de rentrer dans l'habitat à la place de l'utilisateur. Ce QR code pourrait aussi être soumis à des attaques de types Man in the Middle afin d'être intercepté lors de l'échange. Un QR code malveillant redirigeant vers un site web frauduleux peut aussi devenir un problème si cette possibilité n'est pas traité dans le programme de reconnaissance.
+
 Un autre danger serait l'obtention des logs contenant des informations sur l'utilisateur et les lieux et date d'entrée dans l'habitat.
 
 ### 6-2 - Solutions possibles
 
 Après avoir observer les différentes failles, nous allons désormais observer comment se protéger contre celles-ci.
 Afin de protéger notre QR_code contre de potentielles reproductions, celui-ci est codé par une chaine de 1000 caractères générée aléatoirement puis cryptée par une fonction de hachage avant d'être encodée (solution mise en place lors de notre test). Nous pourrions mettre en place à long terme d'autres algorithmes de cryptages plus puissants comme l'ED25519.
+
 Afin d'éviter aux utilisateurs ou a des personnes malveillantes d'accéder aux appareils connectés de l'utilisateur principale, un compte invité peut être mis en place ne donnant accès qu'au QR code avec des identifiants et un mot de passe changeant régulièrement.
 Nous pourrions voir d'autres méthodes pour renforcer la sécurité lors de l'échange comme la mise en place de clés privées et public ou encore de QR code temporaires.
+
 Des méthodes pouvant sembler évidentes mais très efficaces et à ne pas oublier comme l'utilisation d'identifiants et de mots de passe fiables et sécurisés pour le serveur, la mise à jour régulière des logiciels afin de lutter contre les diverses vulnérabilités de logiciels tierces ou encore d'utiliser des méthodes de sécurité pour le WIFI comme le WPA2, WPA3, l'installation d'un pare-feu ou d'une connexion SSL.
 
 ## 7 - Bill of Materials
@@ -124,7 +140,9 @@ Une nette réduction des prix est possible en réalisant un PCB personnalisé en
 ## 8 - Vie privée du service (RGPD)
 
 Après avoir observé la protection de notre logiciel, il est aussi import de vérifier la protection des données utilisateurs et donc respecter les lois du RGPD (Règlement Général sur la Protection des Données).
+
 Dans les cadre de notre système, certaines données peuvent être enregistrées par l'utilisateur comme son image enregistrée par la caméra en attendant la reconnaissance du QR code, les logs indiquant quel utilisateur est rentré dans l'habitat et à quelle heure, ou encore les identifiants et mots de passe de l'utilisateur pour son compte potentiel.
+
 Dans ce cas, il est important d'assurer :
 La transparence à propos de l'utilisation des données enregistrées  et la bonne gestion de celles-ci.
 Il est important aussi de préciser que es données de la caméra ne seront pas enregistrées mais seulement traitées par notre programme de reconnaissance de QR code et que les logs ainsi que les identifiants et mots de passe seront correctement protégés et non utilisés ou vendus à un tierce.
