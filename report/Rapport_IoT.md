@@ -95,7 +95,7 @@ Afin d'éviter aux utilisateurs ou a des personnes malveillantes d'accéder aux 
 Nous pourrions voir d'autres méthodes pour renforcer la sécurité lors de l'échange comme la mise en place de clés privées et public ou encore de QR code temporaires.
 Des méthodes pouvant sembler évidentes mais très efficaces et à ne pas oublier comme l'utilisation d'identifiants et de mots de passe fiables et sécurisés pour le serveur, la mise à jour régulière des logiciels afin de lutter contre les diverses vulnérabilités de logiciels tierces ou encore d'utiliser des méthodes de sécurité pour le WIFI comme le WPA2, WPA3, l'installation d'un pare-feu ou d'une connexion SSL.
 
-## 7 - Bill of Materials (Yoan)
+## 7 - Bill of Materials
 
 Une nomenclature, Bill of Materials ou BOM, est **une liste complète des matières premières, des pièces et des outils nécessaires pour fabriquer un produit donné**.
 
