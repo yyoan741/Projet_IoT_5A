@@ -171,15 +171,13 @@ Nous allons désormais calculer le temps d'exécution de notre processus à l'ai
 
 - Durée totale du protocole : **42,68 secondes**
 
-## 12 - Durée de vie (on verra)
-
-**estimer la durée de vie de la batterie de l’objet (pour LoRaWAN en fonction du datarate comme avec l’outil [https://www.elsys.se/en/battery-life-calculator/](https://www.elsys.se/en/battery-life-calculator/)**
+## 12 - Durée de vie
 
 On suppose que l'on intègre un système de mise en veille de notre dispositif, durant lequel la consommation peut être négligée.
 
-En considérant une utilisation journalière d'une durée de 4 minutes et une consommation de la Raspberry Pi avec la caméra à 600mA, sur 1 mois (31 jours) on aurait : 600 * (4/60) * 31 = 1240 mAh/mois
+En considérant une utilisation journalière d'une durée de 4 minutes et une consommation de la Raspberry Pi avec la caméra à 600mA, sur 1 mois (31 jours) on aurait : **600 * (4/60) * 31 = 1240 mAh/mois**
 
-En choisissant une batterie de 5000mAh, le produit peut ainsi être alimenté convenablement durant 4 mois. Cette autonomie est tout à fait satisfaisante pour une utilisation quotidienne.
+En choisissant une batterie de **5000mAh**, le produit peut ainsi être alimenté convenablement durant **4 mois**. Cette autonomie est tout à fait satisfaisante pour une utilisation quotidienne.
 
 ## 13 - Cycle de vie du produit
 
@@ -201,7 +199,7 @@ La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Cert
 |--|--|--|
 | Prix (€ TTC en France) | 175 | 75 |
 | Connectivité | Wifi, Bluetooth, ZigBee, Autres | Wifi |
-| verrouillage à distance | Oui | Non |
+| Verrouillage à distance | Oui | Non |
 | Invitations | Oui | Oui |
 | Historique des accès | Oui | Oui |
 
@@ -225,9 +223,6 @@ Les fonctionnalités disponibles avec notre produit sont moindres que celles des
 	- string
 	- PiCamera
 	- cv2
-	-
-
- **ajout celles de Yoan**
 
 ## Documentation et Sources
 - Etude de marché
@@ -242,7 +237,7 @@ Les fonctionnalités disponibles avec notre produit sont moindres que celles des
 	- https://jlcpcb.com/
 - Durée de Vie
 	- https://www.raspberryme.com/donnees-de-consommation-electrique-du-raspberry-pi/
-	-
+	- Forums divers
 - Analyse du cycle de Vie
 	- https://www.geo.fr/environnement/definition-terres-rares-scandium-yttrium-et-lanthanides-124433
 	- https://www.insu.cnrs.fr/fr/cnrsinfo/les-terres-rares-le-paradoxe-environnemental
