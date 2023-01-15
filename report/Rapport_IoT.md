@@ -1,12 +1,11 @@
 ## Introduction
 
-Lors de la 5ème année à Polytech Grenoble, il nous a été demandé de travailler sur une durée de 16h en présentiel au FabLab de Grenoble, sur des projets permettant de mettre en place des systèmes connectés.
+Lors de notre 5ème année à Polytech Grenoble, il nous a été demandé de travailler sur une durée de 16h en présentiel au FabLab de Grenoble, sur des projets permettant de mettre en place des systèmes connectés.
 
 Lors de ce projet nous allons essayer de mettre en place un système d'ouverture de porte via un QRcode généré par un script python et de le décoder à l'aide d'une caméra permettant sa reconnaissance, le tout, sur une Raspberry PI.
 
 ##  1 - Analyse du marché
 
-**analyse (rapide) du marché des produits commerciaux concurrents**
 Le marché des serrures connectées est en croissance rapide. La demande pour les systèmes de sécurité de domicile augmente fortement. La fonctionnalité majeure est la possibilité de verrouiller et déverrouiller à distance à l'aide d'un smartphone. Les principaux acteurs sur ce marché sont August, Schlage et Yale. Le marché de ce secteur était estimé à 3,1 milliards de dollars en 2020 et pourrait atteindre 8 milliards en 2026. La croissance de ce marché devrait principalement se trouver en Asie et de manière plus modérée en Europe et en Amérique du Nord. Les prévisions de croissance à long terme pour ce marché sont positives. Les serrures connectées peuvent être connectées à des systèmes de domotique pour une intégration encore plus complète (Google Home, Amazon Alexa, etc).
 
 L’essor de ce marché est notamment lié aux services de location de logement sur courte durée (notamment AirBnB) car il permet facilement de sécuriser son domicile à distance. De plus, ce type de dispositif peut également s’intégrer aux résidences étudiantes ayant un fort turn-over des locataires.
@@ -20,7 +19,6 @@ Les principales caractéristiques des serrures des fabricants cités sont :
 
 ## 2 - Architecture globale du système
 
-**(ensemble d’objets, service en ligne (cloud))**
 ![Architecture envisagée](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/Archi_envisag%C3%A9e.png)
 
 
@@ -112,15 +110,7 @@ Nous pourrions voir d'autres méthodes pour renforcer la sécurité lors de l'é
 Des méthodes pouvant sembler évidentes mais très efficaces et à ne pas oublier comme l'utilisation d'identifiants et de mots de passe fiables et sécurisés pour le serveur, la mise à jour régulière des logiciels afin de lutter contre les diverses vulnérabilités de logiciels tierces ou encore d'utiliser des méthodes de sécurité pour le WIFI comme le WPA2, WPA3, l'installation d'un pare-feu ou d'une connexion SSL.
 
 ## 7 - Bill of Materials
-
-Une nomenclature, Bill of Materials ou BOM, est **une liste complète des matières premières, des pièces et des outils nécessaires pour fabriquer un produit donné**.
-
--   estimer le coût de la BOM de votre produit (composants, PCB et enclosure) pour 5000 unités produites
-
--   pour le boitier, vous pouvez rechercher des boitiers “standards” disponibles dans les catalogues fournisseurs
-
-pour le PCB, vous pouvez fournir une estimation du prix de fabrication du PCB et du masque chez des fournisseurs comme [https://jlcpcb.com/](https://jlcpcb.com/) , [https://www.wedirekt.fr/fr/](https://www.wedirekt.fr/fr/) …
-
+<div align="center">
 | Produit | Quantité par produit  | Prix (€) pour 5000 unités (HT) | Prix (€) unitaire (HT) |
 |--|--|--|--|
 | Raspberry Pi 3 B | 1 | 200000 | 40 (estimé) |
@@ -128,7 +118,7 @@ pour le PCB, vous pouvez fournir une estimation du prix de fabrication du PCB et
 | PiCamera  | 1 | 82900 | 16,58 |
 | Boite hermétique | 1 | 10000 | 2 |
 | Wio Terminal | 1 | 200000 | 40 |
-
+</div>
 
 Prix total pour 5000 unités HT : 602000 €
 
@@ -156,9 +146,13 @@ Il est important aussi de préciser que es données de la caméra ne seront pas 
 
 ## 10- Métrique du logiciel (on verra plus tard ensemble)
 
-- **donner les métriques logiciel du logiciel embarqué (nombre de lignes de code, taille du binaire du firmware ie le fichier .bin)**
+Notre code est majoritairement fait de python. Nous utilisons principalement des librairies. Notre produit instancie à côté Home Assisstant OS,
 
-- **compter le nombre de lignes de code développé (coté objet, coté application) avec un outil comme [cloc](https://github.com/AlDanial/cloc). Précisez les langages et les outils utilisés (git, arduino-cli …)**
+Nombre de lignes de code :
+- Capture.py : **23**
+- genere_QR.py : **18**
+- Script Bash : **3**
+- Total : **44 lignes de codes**
 
 ## 11 - Temps d'exécutions
 
@@ -181,20 +175,16 @@ En choisissant une batterie de **5000mAh**, le produit peut ainsi être aliment�
 
 ## 13 - Cycle de vie du produit
 
-**réaliser une analyse (brève) du cycle de vie du produit “durable” et “[sobre](https://www.youtube.com/watch?v=aX_tzI7w7Qo)” ([ACV](https://fr.wikipedia.org/wiki/Analyse_du_cycle_de_vie))**
-
-La récupération des matières de notre produit est très polluante. Nous utilisons du plastique pour la fabrication du boitier (extraction et raffinage de pétrole) ainsi que des terres rares et des métaux issus du minage pour les composants électroniques (silicium, or, cuivre, etc.).
+La récupération des matières de notre produit est très polluante. Nous utilisons du **plastique** pour la fabrication du boitier (extraction et raffinage de pétrole) ainsi que des **terres rares** et des métaux issus du minage pour les composants électroniques (silicium, or, cuivre, etc.).
 
 La fabrication et le transport de notre produit vers les points de vente serait là aussi polluant. Dans le cas où la production se ferait en Chine, la pollution associée serait plus grande qu’elle pourrait l’être en France.
 
-A l’utilisation, notre serrure connectée consomme de l’électricité pour alimenter les composants et communiquer avec les réseaux. La pollution à ce niveau est alors faible (la consommation est faible compte-tenu du produit) et dépend du mode de production de l’électricité (nucléaire en France, au charbon en Allemagne, etc.).
+A l’utilisation, notre serrure connectée consomme de l’électricité pour alimenter les composants et communiquer avec les réseaux. La pollution à ce niveau est alors faible (la consommation est faible compte-tenu du produit) et dépend du **mode de production de l’électricité** (nucléaire en France, au charbon en Allemagne, etc.).
 
-La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Certains composants électroniques ne sont aujourd’hui pas recyclables (écrans, circuits intégrés). Certaines parties comme les métaux et les plastiques (PCB et boitier) peuvent se recycler, limitant l’impact sur l’environnement de cette étape de vie.
+La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Certains composants électroniques ne sont aujourd’hui **pas recyclables** (écrans, circuits intégrés). Certaines parties comme les métaux et les plastiques (PCB et boitier) peuvent se recycler, limitant l’impact sur l’environnement de cette étape de vie.
 
 ## 14 - Comparaison contre la concurrence
-
--  rechercher et analyser (avantages/inconvénients sous la forme d’une grille) des produits concurrent
-
+<div align="center">
 |  | Concurence|Notre produit |
 |--|--|--|
 | Prix (€ TTC en France) | 175 | 75 |
@@ -202,8 +192,9 @@ La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Cert
 | Verrouillage à distance | Oui | Non |
 | Invitations | Oui | Oui |
 | Historique des accès | Oui | Oui |
+</div>
 
-Les fonctionnalités disponibles avec notre produit sont moindres que celles des produits actuellement sur le marché. Cependant, le prix que nous serions capables de proposer est largement inférieur. Ainsi, notre produit serait une opportunité d’entrée de gamme très crédible.
+Les fonctionnalités disponibles avec notre produit sont moindres que celles des produits actuellement sur le marché. Cependant, le prix que nous serions capables de proposer est largement inférieur. Ainsi, notre produit serait une opportunité d’**entrée de gamme** très crédible.
 
 ## 15 - Intégrations effectuées
 
