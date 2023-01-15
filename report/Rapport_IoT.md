@@ -4,7 +4,7 @@ Lors de la 5ème année à Polytech Grenoble, il nous a été demandé de travai
 
 Lors de ce projet nous allons essayer de mettre en place un système d'ouverture de porte via un QRcode généré par un script python et de le décoder à l'aide d'une caméra permettant sa reconnaissance, le tout, sur une Raspberry PI.
 
-##  1 - Analyse du marché 
+##  1 - Analyse du marché
 
 **analyse (rapide) du marché des produits commerciaux concurrents**
 Le marché des serrures connectées est en croissance rapide. La demande pour les systèmes de sécurité de domicile augmente fortement. La fonctionnalité majeure est la possibilité de verrouiller et déverrouiller à distance à l'aide d'un smartphone. Les principaux acteurs sur ce marché sont August, Schlage et Yale. Le marché de ce secteur était estimé à 3,1 milliards de dollars en 2020 et pourrait atteindre 8 milliards en 2026. La croissance de ce marché devrait principalement se trouver en Asie et de manière plus modérée en Europe et en Amérique du Nord. Les prévisions de croissance à long terme pour ce marché sont positives. Les serrures connectées peuvent être connectées à des systèmes de domotique pour une intégration encore plus complète (Google Home, Amazon Alexa, etc).
@@ -18,7 +18,7 @@ Les principales caractéristiques des serrures des fabricants cités sont :
 - Un historique des accès
 - Le verrouillage automatique
 
-## 2 - Architecture globale du système 
+## 2 - Architecture globale du système
 
 **(ensemble d’objets, service en ligne (cloud))**
 ![Architecture envisagée](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/Archi_envisag%C3%A9e.png)
@@ -45,26 +45,26 @@ Cette architecture étant composé cette fois-ci d'une seule Raspberry sous un O
 
 ![Architecture Solution Idéale](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/schema_archi_embarque_2.png)
 
-## 4- Implémentation logiciel embarqué 
+## 4- Implémentation logiciel embarqué
 
 ### 4-1 - Implémentation Proof of Concept
 
-Après avoir vu son architecture, nous allons désormais étudier le fonctionnement de l'implémentation de notre première Proof of Concept. 
+Après avoir vu son architecture, nous allons désormais étudier le fonctionnement de l'implémentation de notre première Proof of Concept.
 Notre objectif était d'effectuer le protocole suivant :
 
-A partir de l'appui sur le bouton branché sur les ports adaptés de la Raspberry, lancer notre script bash comprenant l'exécution de nos deux scripts python. Le premier génère une chaine de caractère aléatoire de 1000 caractères, la crypte à l'aide d'une fonction de hachage et est envoyée au serveur Home Assistant via une requête Python. Cette requête est envoyée à l'API du serveur qui a été généré au préalable. 
+A partir de l'appui sur le bouton branché sur les ports adaptés de la Raspberry, lancer notre script bash comprenant l'exécution de nos deux scripts python. Le premier génère une chaine de caractère aléatoire de 1000 caractères, la crypte à l'aide d'une fonction de hachage et est envoyée au serveur Home Assistant via une requête Python. Cette requête est envoyée à l'API du serveur qui a été généré au préalable.
 
-Le premier script ayant été lancé le second va ensuite être lancé à son tour. Celui-ci va demander à la caméra d'analyser l'image pendant une trentaine de secondes afin de laisser l'utilisateur sortir le QRcode et le montrer. 
+Le premier script ayant été lancé le second va ensuite être lancé à son tour. Celui-ci va demander à la caméra d'analyser l'image pendant une trentaine de secondes afin de laisser l'utilisateur sortir le QRcode et le montrer.
 
 Celle-ci va ensuite comparer le QRcode repéré et le QR code disponible sur le serveur qui aura été généré via une automatisation sur Home Assistant et ouvrir le portail en fonction du résultat de cette comparaison.
 
 ![Implementation Proof of Concept](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/schema_fonction%20embarque_1.png)
 
-Nous avons cependant rencontré un problème de compatibilité entre notre serveur Home Assistant et la fonction permettant de générer des QRcodes sur celui-ci, rendant la réalisation de ce protocole impossible. 
+Nous avons cependant rencontré un problème de compatibilité entre notre serveur Home Assistant et la fonction permettant de générer des QRcodes sur celui-ci, rendant la réalisation de ce protocole impossible.
 
 Nous avons donc chercher un autre solution afin de générer le QR code directement dans le script Python et de directement l'envoyer à Home Assistant.
 
-### 4-2 - Implémentation Idéale 
+### 4-2 - Implémentation Idéale
 
 Pour implémenter nos programmes sur une seule carte contenant aussi le serveur nous avons donc penser à une nouvelle architecture que nous n'avons malheureusement pas eu le temps de mettre place.
 Celle-ci consistait à flasher la carte Raspberry avec un OS fonctionnant sous Debian cette fois-ci, et y héberger le serveur home assistant sur un docker.
@@ -125,15 +125,16 @@ pour le PCB, vous pouvez fournir une estimation du prix de fabrication du PCB et
 |--|--|--|--|
 | Raspberry Pi 3 B | 1 | 200000 | 40 (estimé) |
 | PiCamera  | 1 | 109100 | 21,82 |
+| PiCamera  | 1 | 82900 | 16,58 |
 | Boite hermétique | 1 | 10000 | 2 |
 | Wio Terminal | 1 | 200000 | 40 |
 
 
-Prix total pour 5000 unités HT : 555835 €
+Prix total pour 5000 unités HT : 602000 €
 
-Prix unitaire HT : 111,57 €
+Prix unitaire HT : 120,40 €
 
-Ces prix ne sont pourtant pas réalistes car dans le cas de la création d’un produit, une Raspberry Pi avec une Pi Camera ne sont pas adaptées. Ces composant sont complets et l’utilisation qu’en fait notre produit est largement sous dimensionné par rapport à leurs capacités.
+Ces prix ne sont pourtant pas réalistes car dans le cas de la création d’un produit, une Raspberry Pi avec une Pi Camera et un Wio Terminal ne sont pas adaptées. Ces composant sont complets et l’utilisation qu’en fait notre produit est largement sous dimensionné par rapport à leurs capacités.
 
 Une nette réduction des prix est possible en réalisant un PCB personnalisé en utilisant uniquement les composants nécessaires. Un PCB sur mesure couterait autour de 500 € pour 5000 unités, composants exclus. Cela reviendrait à 10 centimes par unités. De même, un écran et une caméra seuls permettraient aussi de baisser largement les coûts. Ainsi, on peut espérer baisser le coût de fabrication d’une unité à une cinquantaine d’euros.
 
@@ -147,7 +148,7 @@ Dans ce cas, il est important d'assurer :
 La transparence à propos de l'utilisation des données enregistrées  et la bonne gestion de celles-ci.
 Il est important aussi de préciser que es données de la caméra ne seront pas enregistrées mais seulement traitées par notre programme de reconnaissance de QR code et que les logs ainsi que les identifiants et mots de passe seront correctement protégés et non utilisés ou vendus à un tierce.
 
-## 9 - Coûts de certifications 
+## 9 - Coûts de certifications
 
 - Notre produit utilisant uniquement des connexions WIFI privées, des certifications ne seront pas nécessaires à ce niveau.
 
@@ -174,11 +175,17 @@ Nous allons désormais calculer le temps d'exécution de notre processus à l'ai
 
 **estimer la durée de vie de la batterie de l’objet (pour LoRaWAN en fonction du datarate comme avec l’outil [https://www.elsys.se/en/battery-life-calculator/](https://www.elsys.se/en/battery-life-calculator/)**
 
-## 13 - Cycle de vie du produit 
+On suppose que l'on intègre un système de mise en veille de notre dispositif, durant lequel la consommation peut être négligée.
+
+En considérant une utilisation journalière d'une durée de 4 minutes et une consommation de la Raspberry Pi avec la caméra à 600mA, sur 1 mois (31 jours) on aurait : 600 * (4/60) * 31 = 1240 mAh/mois
+
+En choisissant une batterie de 5000mAh, le produit peut ainsi être alimenté convenablement durant 4 mois. Cette autonomie est tout à fait satisfaisante pour une utilisation quotidienne.
+
+## 13 - Cycle de vie du produit
 
 **réaliser une analyse (brève) du cycle de vie du produit “durable” et “[sobre](https://www.youtube.com/watch?v=aX_tzI7w7Qo)” ([ACV](https://fr.wikipedia.org/wiki/Analyse_du_cycle_de_vie))**
 
-La récupération des matières de notre produit est très polluante. Nous utilisons des terres rares pour la fabrication du boitier (pétrole pour le plastique) ainsi que les composants électroniques (silicium, or, cuivre, etc.).
+La récupération des matières de notre produit est très polluante. Nous utilisons du plastique pour la fabrication du boitier (extraction et raffinage de pétrole) ainsi que des terres rares et des métaux issus du minage pour les composants électroniques (silicium, or, cuivre, etc.).
 
 La fabrication et le transport de notre produit vers les points de vente serait là aussi polluant. Dans le cas où la production se ferait en Chine, la pollution associée serait plus grande qu’elle pourrait l’être en France.
 
@@ -186,7 +193,7 @@ A l’utilisation, notre serrure connectée consomme de l’électricité pour a
 
 La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Certains composants électroniques ne sont aujourd’hui pas recyclables (écrans, circuits intégrés). Certaines parties comme les métaux et les plastiques (PCB et boitier) peuvent se recycler, limitant l’impact sur l’environnement de cette étape de vie.
 
-## 14 - Comparaison contre la concurrence 
+## 14 - Comparaison contre la concurrence
 
 -  rechercher et analyser (avantages/inconvénients sous la forme d’une grille) des produits concurrent
 
@@ -194,12 +201,13 @@ La fin de vie de notre produit n’est malheureusement pas bien maitrisée. Cert
 |--|--|--|
 | Prix (€ TTC en France) | 175 | 75 |
 | Connectivité | Wifi, Bluetooth, ZigBee, Autres | Wifi |
+| verrouillage à distance | Oui | Non |
 | Invitations | Oui | Oui |
 | Historique des accès | Oui | Oui |
 
 Les fonctionnalités disponibles avec notre produit sont moindres que celles des produits actuellement sur le marché. Cependant, le prix que nous serions capables de proposer est largement inférieur. Ainsi, notre produit serait une opportunité d’entrée de gamme très crédible.
 
-## 15 - Intégrations effectuées 
+## 15 - Intégrations effectuées
 
 - stack editor (markdown editor)
 - github pour le répertoire du projet
@@ -213,20 +221,35 @@ Les fonctionnalités disponibles avec notre produit sont moindres que celles des
 	- json
 	- Pillow
 	- random
-	- time 
+	- time
 	- string
-	
+	- PiCamera
+	- cv2
+	-
+
  **ajout celles de Yoan**
 
 ## Documentation et Sources
-- https://www.serrure-connectee.fr/
-- https://www.frandroid.com/guide-dachat/guide-dachat-maison-connectee/840576_quelles-sont-les-meilleures-serrures-connectees-en-2021
-- https://www.infoprotection.fr/des-serrures-connectees-de-seconde-generation/
-- https://www.mordorintelligence.com/fr/industry-reports/smart-lock-market
-- https://fr.rs-online.com/web/c/raspberry-pi-arduino-outils-de-developpement/boutique-raspberry-pi/
-- https://www.gotronic.fr/art-wio-terminal-31802.htm
-- https://jlcpcb.com/
-
+- Etude de marché
+	- https://www.serrure-connectee.fr/
+	- https://www.frandroid.com/guide-dachat/guide-dachat-maison-connectee/840576_quelles-sont-les-meilleures-serrures-connectees-en-2021
+	- https://www.infoprotection.fr/des-serrures-connectees-de-seconde-generation/
+	- https://www.mordorintelligence.com/fr/industry-reports/smart-lock-market
+	- Bill Of Materials
+	- https://fr.rs-online.com/web/p/cameras-pour-raspberry-pi/9132664
+	- https://www.gotronic.fr/art-wio-terminal-31802.htm
+	- https://www.gotronic.fr/art-batterie-externe-usb-57975-35475.htm
+	- https://jlcpcb.com/
+- Durée de Vie
+	- https://www.raspberryme.com/donnees-de-consommation-electrique-du-raspberry-pi/
+	-
+- Analyse du cycle de Vie
+	- https://www.geo.fr/environnement/definition-terres-rares-scandium-yttrium-et-lanthanides-124433
+	- https://www.insu.cnrs.fr/fr/cnrsinfo/les-terres-rares-le-paradoxe-environnemental
+	- https://bpsuperfioul.fr/plastique-fabrication/
+	- https://www.ecologie.gouv.fr/transition-energetique-en-france
+	- https://www.hellocarbo.com/blog/reduire/recyclage-plastique/
+	- https://fr.rs-online.com/web/generalDisplay.html?id=i/dechets-electriques-et-electroniques
 - Vulnérabilités :
 	 - https://itsocial.fr/enjeux-it/enjeux-tech/iot-edgecomputing/top-5-vulnerabilites-objets-connectes/
 	- Cours IESE-5 - Cybersécurité
