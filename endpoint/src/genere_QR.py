@@ -20,11 +20,15 @@ rand_cle = random_string(1000)
 
 #on cryptypte cette chaine et on genere un QRcode
 rand_cle_crypt=str(hash(rand_cle))
-QR_code=qrcode.make(rand_cle_crypt)
+print("code crypté : {}".format(rand_cle_crypt))
 
-#on l affiche et on le sauvegarde dans un fichier
-print(QR_code)
-QR_code.save('QR_CODE_PORTE_crypt.jpg')
+#on ajoute les potentiels logs pour notre démo
+cle_et_log=rand_cle_crypt+"_15/01/2023_20:16"+"_user_1"+"_3rd_floor"+"_appt_128"
+print("code crypté avec logs : {}".format(cle_et_log))
+QR_code=qrcode.make(cle_et_log)
+
+#on le sauvegarde dans un fichier
+QR_code.save('QR_CODE_PORTE_LOGS.jpg')
 
 #mesure fin du temps d execution
 end= time.time()
