@@ -145,12 +145,12 @@ Il est important aussi de préciser que es données de la caméra ne seront pas 
 
 Nous allons désormais calculer le temps d'exécution de notre processus à l'aide de la librairie time de python nous permettant de mesurer le temps :
 - script bash :
-	- programme genere_QR.py : **0,028s**
+	- programme genere_QR.py : **0,049s**
 	- programme capture.py : **12,18s** + **30s** pour que l'utilisateur ai le temps de monter le QR code.
 
 - mise à jour du QR code sur le serveur comprise dans le genere_QR.py car enregistrement du fichier dans base de donnée locale.
 
-- Durée totale du protocole : **42,1 secondes**
+- Durée totale du protocole : **42,68 secondes**
 
 ## 12 - Durée de vie (on verra)
 
