@@ -112,7 +112,9 @@ Un menace se trouve aussi lors de la connexion au serveur de home assistant, si 
 
 De nombreux danger se trouvent aussi dans les échanges de QR codes. En effet, celui-ci pourrait être reproduit ou rediriger vers une autre entité afin de rentrer dans l'habitat à la place de l'utilisateur. Ce QR code pourrait aussi être soumis à des attaques de types Man in the Middle afin d'être intercepté lors de l'échange. Un QR code malveillant redirigeant vers un site web frauduleux peut aussi devenir un problème si cette possibilité n'est pas traité dans le programme de reconnaissance.
 
-Un autre danger serait l'obtention des logs contenant des informations sur l'utilisateur et les lieux et date d'entrée dans l'habitat.
+Un autre danger serait l'obtention des logs contenant des informations sur l'utilisateur et les lieux et date d'entrée dans l'habitat. Nos logs pourraient contenir les informations suivantes : utilisateur, étage de l'appartement, numéro d'appartement et autre possibles infos. Un exemple de logs générés est donné sur la figure suivante :
+
+![Logs](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/Logs.png)
 
 ### 6-2 - Solutions possibles
 
