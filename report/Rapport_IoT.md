@@ -72,7 +72,7 @@ Nous avons donc chercher un autre solution afin de générer le QR code directem
 Pour implémenter nos programmes sur une seule carte contenant aussi le serveur nous avons donc penser à une nouvelle architecture que nous n'avons malheureusement pas eu le temps de mettre place.
 Celle-ci consistait à flasher la carte Raspberry avec un OS fonctionnant sous Debian cette fois-ci, et y héberger le serveur home assistant sur un docker.
 
-Le fonctionnement du protocole de cette architecture serait donc semblable au premier mais avec quelques différences tout de mêmes. Le bouton activera toujours le script bash lançant toujours les deux scripts python avec les mêmes timings mais avec un envoi du QR code totalement différent. En effet celui-ci sera cette fois-ci enregistré directement dans le fichier config/www/ contenu dans le docker du home assistant ,contenant les différents médias.
+Le fonctionnement du protocole de cette architecture serait donc semblable au premier mais avec quelques différences tout de mêmes. Le bouton activera toujours le script bash lançant toujours les deux scripts python avec les mêmes timings mais avec un envoi du QR code totalement différent. En effet celui-ci sera cette fois-ci enregistré directement dans le fichier config/www/ contenu dans le docker du home assistant contenant les différents médias, à l'aide des add-ons "file editor" et "samba share".
 
 L'affichage se fera donc directement sur home assistant en cherchant le fichier dans ses fichiers locaux. Le reste du protocole d'effectuera de la même manière que l'architecture précédente.
 
@@ -80,7 +80,7 @@ L'affichage se fera donc directement sur home assistant en cherchant le fichier 
 
 Nous avons eu le temps de tester cette démarche sur l'OS d'Home Assistant implanté sur une des RaspberryPI de notre première Proof of Concept, à la différence que le code pour l'enregistrement du QR code en format jpg s'effectue en local et est transféré à la main dans le fichier config/www/ d'home assistant contenant les médias. Mais celui-ci s'affiche bien dans le Dashboard principal du serveur et donc sur le téléphone avec l'application reliée comme ci-dessous :
 
-![Screenshot_Telephone](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/screenshot_telephone.jpg)
+![Screenshot_Telephone](https://github.com/yyoan741/Projet_IoT_5A/blob/main/report/images/Screeshot_smartphone.jpg)
 
 ## 5 - Format des messages
 
@@ -256,9 +256,3 @@ Les fonctionnalités disponibles avec notre produit sont moindres que celles des
 - RGPD :
 	- https://www.cnil.fr/fr/reglement-europeen-protection-donnees
 	- https://donnees-rgpd.fr/traitement-donnees/securisation-iot-rgpd/
-
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMDQ4OTc0MCwtMTk5MTc3MDY2NiwxMj
-c0NDEyMzM0LC0zMDQ5Mzg5ODcsNzMwOTk4MTE2XX0=
--->
